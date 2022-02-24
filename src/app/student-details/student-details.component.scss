@@ -1,0 +1,30 @@
+@import "../../styles/styles.scss";
+
+h1 {
+  font-size: 2rem;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.student-wrapper {
+  margin: 2rem;
+  display: flex;
+  padding: 1rem 2rem;
+  max-width: 70rem;
+  gap: 3rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  .student-info {
+    font-size: 1.6rem;
+    line-height: 1.5;
+
+    span {
+      font-weight: 700;
+      color: $dark-blue;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+}

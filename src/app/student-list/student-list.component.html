@@ -1,0 +1,24 @@
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <th>MSSV</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Quê quán</th>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="let student of students"
+        routerLink="/student/{{ student.id }}"
+      >
+        <td>{{ student.id }}</td>
+        <td>
+          {{ student.lastName + " " + student.firstName }}
+        </td>
+        <td>{{ student.dob | date: "fullDate" }}</td>
+        <td>{{ student.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

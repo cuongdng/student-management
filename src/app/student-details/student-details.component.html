@@ -1,0 +1,51 @@
+<h1>Thông tin sinh viên</h1>
+<div class="student-wrapper" *ngIf="student">
+  <img src="../../assets/images/avt_placeholder.jpg" alt="Avatar" />
+  <div class="student-info" *ngIf="editMode; else editTemplate">
+    <p>
+      Họ tên:
+      <input
+        type="text"
+        value="{{ student.lastName + ' ' + student.firstName }}"
+      />
+    </p>
+    <p>
+      Mã số sinh viên:
+      <input type="text" value="{{ student.id }}" [(ngModel)]="student.id" />
+    </p>
+    <p>
+      Ngày sinh:
+      <input
+        type="datetime"
+        value="{{ student.dob | date: 'dd/MM/y' }}"
+        [(ngModel)]="student.dob"
+      />
+    </p>
+    <p>
+      Quê quán:
+      <input
+        type="text"
+        value="{{ student.address }}"
+        [(ngModel)]="student.address"
+      />
+    </p>
+    <button (click)="updateStudent()">Lưu thông tin</button>
+  </div>
+  <ng-template #editTemplate>
+    <div class="student-info">
+      <p>
+        Họ tên: <span>{{ student.lastName + " " + student.firstName }}</span>
+      </p>
+      <p>
+        Mã số sinh viên: <span>{{ student.id }}</span>
+      </p>
+      <p>
+        Ngày sinh: <span>{{ student.dob | date: "dd/MM/y" }}</span>
+      </p>
+      <p>
+        Quê quán: <span>{{ student.address }}</span>
+      </p>
+      <button (click)="updateStudent()">Sửa thông tin</button>
+    </div>
+  </ng-template>
+</div>
