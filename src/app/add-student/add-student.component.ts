@@ -11,6 +11,7 @@ export class AddStudentComponent implements OnInit {
   constructor(private studentService: StudentService) {}
 
   onAddSubmit(form: NgForm): void {
+    form.value.id = parseInt(form.value.id, 10);
     this.studentService.addStudent(form.value);
     alert('This student has been added!');
     form.reset();

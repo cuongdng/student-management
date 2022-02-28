@@ -14,6 +14,7 @@ export class StudentDetailsComponent implements OnInit {
 
   getStudent(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(id);
     this.student = this.studentService.getStudent(id);
     console.log(this.student);
   }

@@ -9,11 +9,11 @@ export class StudentService {
   private students: Student[] = students;
 
   getStudents(): Student[] {
-    return students;
+    return this.students;
   }
 
   getStudent(id: number): Student {
-    const student = students.find((student) => student.id === id)!;
+    const student = this.students.find((student) => student.id === id)!;
     return student;
   }
 
