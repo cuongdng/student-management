@@ -18,13 +18,10 @@ export class StudentDetailsComponent implements OnInit {
     console.log(this.student);
   }
 
-  updateStudent(): void {
-    this.toggleEditMode();
-  }
-
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
+
   constructor(
     private route: ActivatedRoute,
     private studentService: StudentService

@@ -6,7 +6,8 @@
       Họ tên:
       <input
         type="text"
-        value="{{ student.lastName + ' ' + student.firstName }}"
+        value="{{ student.fullName }}"
+        [(ngModel)]="student.fullName"
       />
     </p>
     <p>
@@ -17,7 +18,7 @@
       Ngày sinh:
       <input
         type="datetime"
-        value="{{ student.dob | date: 'dd/MM/y' }}"
+        value="{{ student.dob }}"
         [(ngModel)]="student.dob"
       />
     </p>
@@ -29,23 +30,23 @@
         [(ngModel)]="student.address"
       />
     </p>
-    <button (click)="updateStudent()">Lưu thông tin</button>
+    <button (click)="toggleEditMode()">Lưu thông tin</button>
   </div>
   <ng-template #editTemplate>
     <div class="student-info">
       <p>
-        Họ tên: <span>{{ student.lastName + " " + student.firstName }}</span>
+        Họ tên: <span>{{ student.fullName }}</span>
       </p>
       <p>
         Mã số sinh viên: <span>{{ student.id }}</span>
       </p>
       <p>
-        Ngày sinh: <span>{{ student.dob | date: "dd/MM/y" }}</span>
+        Ngày sinh: <span>{{ student.dob }}</span>
       </p>
       <p>
         Quê quán: <span>{{ student.address }}</span>
       </p>
-      <button (click)="updateStudent()">Sửa thông tin</button>
+      <button (click)="toggleEditMode()">Sửa thông tin</button>
     </div>
   </ng-template>
 </div>

@@ -19,6 +19,15 @@ export class StudentListComponent implements OnInit {
     this.students = this.studentService.getStudents();
   }
 
+  deleteStudent(student: Student, event: Event): void {
+    if (confirm('Are you sure to delete this student?')) {
+      event.stopPropagation();
+      this.students = this.students.filter((s) => s !== student);
+    } else {
+      event.stopPropagation();
+    }
+  }
+
   ngOnInit(): void {
     this.getStudents();
   }

@@ -14,10 +14,13 @@
       >
         <td>{{ student.id }}</td>
         <td>
-          {{ student.lastName + " " + student.firstName }}
+          {{ student.fullName }}
         </td>
-        <td>{{ student.dob | date: "fullDate" }}</td>
-        <td>{{ student.address }}</td>
+        <td>{{ student.dob }}</td>
+        <td>
+          {{ student.address }}
+          <span (click)="deleteStudent(student, $event)">X</span>
+        </td>
       </tr>
     </tbody>
   </table>
