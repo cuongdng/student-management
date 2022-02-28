@@ -1,10 +1,30 @@
-<div class="container">
+<form novalidate #addForm="ngForm" (submit)="onAddSubmit(addForm)">
+  <h2>Thêm sinh viên</h2>
   <label for="name">Họ và tên</label>
-  <input type="text" name="name" id="name" />
+  <input
+    type="text"
+    name="fullName"
+    id="name"
+    placeholder="Your name"
+    ngModel
+  />
   <label for="id">Mã số sinh viên</label>
-  <input type="text" name="id" id="id" />
+  <input type="text" name="id" id="id" placeholder="Your student id" ngModel />
   <label for="dob">Ngày sinh</label>
-  <input type="text" name="dob" id="dob" />
+  <input
+    type="text"
+    name="dob"
+    id="dob"
+    placeholder="Your date of birth"
+    ngModel
+  />
   <label for="addr">Quê quán</label>
-  <input type="text" name="addr" id="addr" />
-</div>
+  <input
+    type="text"
+    name="address"
+    id="addr"
+    placeholder="Your address"
+    ngModel
+  />
+  <button type="submit">Add</button>
+</form>

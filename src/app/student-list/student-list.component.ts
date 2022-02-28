@@ -9,10 +9,6 @@ import { StudentService } from '../student.service';
 export class StudentListComponent implements OnInit {
   students: Student[] = [];
 
-  public showAlert(student: Student): void {
-    console.log(student.id);
-  }
-
   constructor(private studentService: StudentService) {}
 
   getStudents(): void {
@@ -22,7 +18,7 @@ export class StudentListComponent implements OnInit {
   deleteStudent(student: Student, event: Event): void {
     if (confirm('Are you sure to delete this student?')) {
       event.stopPropagation();
-      this.students = this.students.filter((s) => s !== student);
+      this.studentService.deleteStudent(student);
     } else {
       event.stopPropagation();
     }

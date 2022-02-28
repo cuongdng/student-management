@@ -1,0 +1,60 @@
+@import "../../styles/styles.scss";
+
+form {
+  margin-top: 20px;
+  padding: 40px;
+  width: 668px;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-30%);
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: $dark-blue;
+    color: $white;
+    padding: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 2rem;
+  }
+
+  label {
+    padding: 10px 0 5px;
+    font-size: 1.6rem;
+  }
+
+  input {
+    height: 44px;
+    width: 40%;
+    font-size: 16px;
+    &:target {
+      outline: none;
+    }
+  }
+
+  button {
+    padding: 10px;
+    margin: 20px 0 0;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: $blue;
+    color: $white;
+    outline: none;
+    border: none;
+
+    &:active,
+    &:hover {
+      background-color: #1e95ca;
+      transform: scale(0.98);
+    }
+  }
+}
