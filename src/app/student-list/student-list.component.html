@@ -9,7 +9,10 @@
 
     <tbody>
       <tr
-        *ngFor="let student of students"
+        *ngFor="
+          let student of students
+            | paginate: { itemsPerPage: 10, currentPage: p }
+        "
         routerLink="/student/{{ student.id }}"
       >
         <td>{{ student.id }}</td>
@@ -23,5 +26,10 @@
         </td>
       </tr>
     </tbody>
+
+    <pagination-controls
+      (pageChange)="p = $event"
+      class="pagination"
+    ></pagination-controls>
   </table>
 </div>

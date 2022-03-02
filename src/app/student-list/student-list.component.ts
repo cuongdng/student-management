@@ -10,6 +10,8 @@ import { StudentService } from '../student.service';
 export class StudentListComponent implements OnInit, AfterContentInit {
   students: Student[] = [];
 
+  p: number = 1;
+
   constructor(private studentService: StudentService) {}
   ngAfterContentInit(): void {
     this.getStudents();

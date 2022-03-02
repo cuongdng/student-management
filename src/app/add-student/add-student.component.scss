@@ -40,6 +40,12 @@ form {
     }
   }
 
+  small {
+    display: block;
+    color: red;
+    padding: 5px 0 0;
+  }
+
   button {
     padding: 10px;
     margin: 20px 0 0;
@@ -50,9 +56,12 @@ form {
     color: $white;
     outline: none;
     border: none;
+    &:disabled {
+      background-color: #86b7cc;
+      cursor: not-allowed;
+    }
 
-    &:active,
-    &:hover {
+    &:active:hover {
       background-color: #1e95ca;
       transform: scale(0.98);
     }

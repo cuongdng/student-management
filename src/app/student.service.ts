@@ -12,7 +12,7 @@ export class StudentService {
     return this.students;
   }
 
-  getStudent(id: number): Student {
+  getStudent(id: string): Student {
     const student = this.students.find((student) => student.id === id)!;
     return student;
   }

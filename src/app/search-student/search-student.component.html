@@ -1,0 +1,17 @@
+<div class="search-container">
+  <input
+    #input
+    type="text"
+    (input)="search(input.value)"
+    placeholder="Tìm kiếm sinh viên"
+  />
+  <div *ngIf="searching" class="search-result">
+    <p
+      *ngFor="let student of searching"
+      routerLink="/student/{{ student.id }}"
+      (click)="resetResult()"
+    >
+      {{ student.fullName }} | {{ student.id }}
+    </p>
+  </div>
+</div>

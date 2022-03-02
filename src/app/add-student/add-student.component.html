@@ -1,30 +1,42 @@
-<form novalidate #addForm="ngForm" (submit)="onAddSubmit(addForm)">
+<form [formGroup]="newStudent" (ngSubmit)="onAddSubmit()">
   <h2>Thêm sinh viên</h2>
+
   <label for="name">Họ và tên</label>
-  <input
-    type="text"
-    name="fullName"
-    id="name"
-    placeholder="Your name"
-    ngModel
-  />
+  <input type="text" name="fullName" id="name" formControlName="fullName" />
+  <div *ngIf="form['fullName'].touched || form['fullName'].dirty">
+    <div *ngIf="form['fullName'].errors?.['required']">
+      <small>Hãy điền họ và tên sinh viên</small>
+    </div>
+  </div>
+
   <label for="id">Mã số sinh viên</label>
-  <input type="text" name="id" id="id" placeholder="Your student id" ngModel />
+  <input type="text" name="id" id="id" formControlName="id" />
+  <div *ngIf="form['id'].touched || form['id'].dirty">
+    <div *ngIf="form['id'].errors?.['required']">
+      <small>Hãy điền mã số sinh viên</small>
+    </div>
+    <div *ngIf="form['id'].errors?.['pattern']">
+      <small>Sai định dạng mã sinh viên (Gồm chữ cái và số)</small>
+    </div>
+  </div>
+
   <label for="dob">Ngày sinh</label>
-  <input
-    type="text"
-    name="dob"
-    id="dob"
-    placeholder="Your date of birth"
-    ngModel
-  />
+  <input type="text" name="dob" id="dob" formControlName="dob" />
+  <div *ngIf="form['dob'].touched || form['dob'].dirty">
+    <div *ngIf="form['dob'].errors?.['required']">
+      <small>Hãy điền ngày sinh</small>
+    </div>
+    <div *ngIf="form['dob'].errors?.['pattern']">
+      <small>Sai định dạng ngày sinh - dd/MM/yyyy (16/08/2001)</small>
+    </div>
+  </div>
+
   <label for="addr">Quê quán</label>
-  <input
-    type="text"
-    name="address"
-    id="addr"
-    placeholder="Your address"
-    ngModel
-  />
-  <button type="submit">Add</button>
+  <input type="text" name="address" id="addr" formControlName="address" />
+  <div *ngIf="form['address'].touched || form['address'].dirty">
+    <div *ngIf="form['address'].errors?.['required']">
+      <small>Hãy điền quê quán</small>
+    </div>
+  </div>
+  <button type="submit" [disabled]="newStudent.invalid">Add</button>
 </form>

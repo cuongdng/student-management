@@ -1,0 +1,31 @@
+@import "../../styles/styles.scss";
+
+.search-container {
+  margin-left: 40px;
+  position: absolute;
+  top: 16px;
+  input {
+    display: block;
+    border-radius: 4px;
+    padding: 6px;
+    width: 260px;
+    margin-bottom: 20px;
+  }
+  .search-result {
+    background-color: $light-blue;
+    position: absolute;
+    top: 30px;
+    left: -5%;
+    right: -5%;
+    z-index: 99;
+    p {
+      list-style-type: none;
+      font-size: 16px;
+      padding: 4px 6px;
+      cursor: pointer;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

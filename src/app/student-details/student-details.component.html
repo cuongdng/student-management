@@ -2,35 +2,52 @@
 <div class="student-wrapper" *ngIf="student">
   <img src="../../assets/images/avt_placeholder.jpg" alt="Avatar" />
   <div class="student-info" *ngIf="editMode; else editTemplate">
-    <p>
-      Họ tên:
-      <input
-        type="text"
-        value="{{ student.fullName }}"
-        [(ngModel)]="student.fullName"
-      />
-    </p>
-    <p>
-      Mã số sinh viên:
-      <input type="text" value="{{ student.id }}" [(ngModel)]="student.id" />
-    </p>
-    <p>
-      Ngày sinh:
-      <input
-        type="datetime"
-        value="{{ student.dob }}"
-        [(ngModel)]="student.dob"
-      />
-    </p>
-    <p>
-      Quê quán:
-      <input
-        type="text"
-        value="{{ student.address }}"
-        [(ngModel)]="student.address"
-      />
-    </p>
-    <button (click)="toggleEditMode()">Lưu thông tin</button>
+    <form #f="ngForm">
+      <p>
+        Họ tên:
+        <input
+          name="fullName"
+          type="text"
+          value="{{ student.fullName }}"
+          [(ngModel)]="student.fullName"
+          required
+        />
+      </p>
+
+      <p>
+        Mã số sinh viên:
+        <input
+          name="id"
+          type="text"
+          value="{{ student.id }}"
+          [(ngModel)]="student.id"
+          required
+        />
+      </p>
+      <p>
+        Ngày sinh:
+        <input
+          name="dob"
+          type="datetime"
+          value="{{ student.dob }}"
+          [(ngModel)]="student.dob"
+          required
+        />
+      </p>
+      <p>
+        Quê quán:
+        <input
+          name="address"
+          type="text"
+          value="{{ student.address }}"
+          [(ngModel)]="student.address"
+          required
+        />
+      </p>
+      <button (click)="toggleEditMode()" [disabled]="f.invalid">
+        Lưu thông tin
+      </button>
+    </form>
   </div>
   <ng-template #editTemplate>
     <div class="student-info">
